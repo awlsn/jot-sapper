@@ -29,6 +29,6 @@ module.exports = (req, res) => {
   const db = await connectToDatabase(process.env.MONGO_URI);
 
   const collection = await db.collection("data");
-  collection.insert(body);
+  await collection.insert(body);
   res.send(body);
 };
