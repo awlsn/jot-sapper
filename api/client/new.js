@@ -23,12 +23,12 @@ async function connectToDatabase(uri) {
   return db;
 }
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   const { body } = req;
 
   const db = await connectToDatabase(process.env.MONGO_URI);
 
   const collection = await db.collection("data");
-  await collection.insert(body);
+  collection.insert(body);
   res.send(body);
 };
