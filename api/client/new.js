@@ -1,5 +1,4 @@
-const bodyParser = require("body-parser");
-
 module.exports = (req, res) => {
-  res.send(req);
+  const { body } = req;
+  res.send(body);
 };
